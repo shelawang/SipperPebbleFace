@@ -1,0 +1,36 @@
+{
+    "appKeys": {
+        "chunk": 0,
+        "index": 1,
+        "message": 2
+    },
+    "capabilities": [
+        "configurable"
+    ],
+    "companyName": "Cornell Egg Hunters",
+    "longName": "Sipper Watchface",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/drinkpicker-120.png",
+                "name": "ICON_120",
+                "type": "png"
+            },
+            {
+                "file": "images/drinkpicker-28.png",
+                "menuIcon": true,
+                "name": "ICON_28",
+                "type": "png"
+            }
+        ]
+    },
+    "sdkVersion": "2",
+    "shortName": "Sipper",
+    "uuid": "ed4bd38e-6b71-4cc2-a3cf-1a3732ec2f2b",
+    "versionCode": 3,
+    "versionLabel": "0.1",
+    "watchapp": {
+        "watchface": true
+    }
+}
