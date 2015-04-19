@@ -176,7 +176,6 @@ Pebble.addEventListener("ready", function(e) {
 
 Pebble.addEventListener("appmessage", function(e) {
   getImage("http://api.qrserver.com/v1/create-qr-code/?size=140x140&format=jpg&data=" + options.url);
-  //getImage("http://api.qrserver.com/v1/create-qr-code/?size=140x140&format=jpg&data=981F485C-0E22-4D3C-A1EF-B2CED281BCE1");
 });
 
 function sendMessage(data, success, failure) {
@@ -195,7 +194,8 @@ function sendMessage(data, success, failure) {
 }
 
 Pebble.addEventListener('showConfiguration', function(e) {
-  var uri = 'http://petitpepito.free.fr/config/imageviewer_config.html';
+  //var uri = 'http://petitpepito.free.fr/config/imageviewer_config.html';
+  var uri = 'https://dl.dropboxusercontent.com/u/108339909/sipper/imageviewer_config.html';
   Pebble.openURL(uri);
 });
 
@@ -203,8 +203,7 @@ Pebble.addEventListener('webviewclosed', function(e) {
   if (e.response) {
     options = JSON.parse(decodeURIComponent(e.response));
     localStorage.setItem('options', JSON.stringify(options));
-    //getImage(options.uuid);
+    //getImage(options.url);
     getImage("http://api.qrserver.com/v1/create-qr-code/?size=140x140&format=jpg&data=" + options.url);
-    //getImage("http://api.qrserver.com/v1/create-qr-code/?size=140x140&format=jpg&data=981F485C-0E22-4D3C-A1EF-B2CED281BCE1");
   } 
 });
