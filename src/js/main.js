@@ -1,6 +1,7 @@
 var options = JSON.parse(localStorage.getItem('options'));
 if (options === null) 
   options = { "url" : "981F485C-0E22-4D3C-A1EF-B2CED281BCE1"}; //dummy uuid
+  options = { "url" : ""}; //dummy uuid
 
 var CHUNK_SIZE = 1500;
 var DOWNLOAD_TIMEOUT = 20000;
@@ -154,19 +155,28 @@ function endsWith(str, suffix) {
 function getImage(url){
   console.log("Image URL : "+ url);
   //sendMessage({"message":"Downloading image..."}, null, null);
-  sendMessage({"message":"Getting Sipper pass..."}, null, null);
-
-  if(endsWith(url, ".pbi")){
-    getPbiImage(url);
-  }
-  else if(endsWith(url, ".gif") || endsWith(url, ".GIF")){
-    getGifImage(url);
-  }
-  else if(endsWith(url, ".jpg") || endsWith(url, ".jpeg") || endsWith(url, ".JPG") || endsWith(url, ".JPEG")){
-    getJpegImage(url);
+  
+  //no uuid entered yet
+  if (url == "http://api.qrserver.com/v1/create-qr-code/?size=140x140&format=jpg&data=") {
+    sendMessage({"message":"Waiting for Sipper ID..."}, null, null);
   }
   else {
-    getJpegImage(url);
+  
+    sendMessage({"message":"Getting Sipper pass..."}, null, null);
+  
+    if(endsWith(url, ".pbi")){
+      getPbiImage(url);
+    }
+    else if(endsWith(url, ".gif") || endsWith(url, ".GIF")){
+      getGifImage(url);
+    }
+    else if(endsWith(url, ".jpg") || endsWith(url, ".jpeg") || endsWith(url, ".JPG") || endsWith(url, ".JPEG")){
+      getJpegImage(url);
+    }
+    else {
+      getJpegImage(url);
+    }
+    
   }
 }
 
